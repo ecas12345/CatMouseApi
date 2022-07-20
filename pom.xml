@@ -14,7 +14,7 @@
 	<name>catMouseApi</name>
 	<description>catMouse project built as an API on spring</description>
 	<properties>
-		<java.version>15</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
