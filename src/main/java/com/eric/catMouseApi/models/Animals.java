@@ -97,6 +97,15 @@ public class Animals {
 		this.spacesCatCanJump = spacesCatCanJump;
 	}
 	
+
+	public int getCatDogDistance() {
+		return catDogDistance;
+	}
+
+	public void setCatDogDistance(int catDogDistance) {
+		this.catDogDistance = catDogDistance;
+	}
+	
 	public boolean hasAnimals() {
 		String[] animalLetters = { "C", "D", "m"};
 		for(String letter : animalLetters) { //loop through predetermined letters representing animals to ensure they are not all missing.			
@@ -132,13 +141,5 @@ public class Animals {
 		 */
 		if((this.dogLocation > -1 ) && (this.spacesCatCanJump >= this.catDogDistance)) return true;
 		else return false;
-	}
-
-	public int getCatDogDistance() {
-		return catDogDistance;
-	}
-
-	public void setCatDogDistance(int catDogDistance) {
-		this.catDogDistance = catDogDistance;
 	}
 }

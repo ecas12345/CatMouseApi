@@ -41,7 +41,7 @@ public class CatMouseServiceImpl implements CatMouseService{
 			if(animalScenario.dogBetween() && animalScenario.collidesWithDog()) {
 				return "Protected!";
 			}
-			//This checks if the spaces the cat can jump are equal to or greater than the distance between the cat and mouse
+			//This checks if the spaces the cat can jump are greater than or equal to the distance between the cat and mouse
 			if(animalScenario.jumpedFarEnough()) {
 				return "Caught!"; //Return Caught! because the cat could jump far enough and the dog is not blocking the cat
 			}
