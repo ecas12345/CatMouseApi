@@ -19,6 +19,7 @@ public class CatMouseServiceImpl implements CatMouseService{
 	 * Assumptions: 
 	 * 		The string passed only contains characters 'C','D','m', or '.'
 	 *		The distance passed that defines how far the cat can jump is a non-negative number.
+	 *		The distance passed that defines how far the car can jump is a whole number, not a decimal
 	 *		The string passed will at most contain only one of each of the following characters, C, D, m.
 	 *		For as long as some animals are present in the string it will always contain the characters C, m. But it may not contain D.
 	 *		The integer passed for j will not be larger or less than integer max and minimum values
