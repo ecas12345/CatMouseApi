@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eric.catMouseApi.models.ScenarioRequest;
+import com.eric.catMouseApi.models.ScenarioResponse;
 import com.eric.catMouseApi.service.CatMouseService;
 
 @RestController
@@ -19,7 +20,9 @@ public class CatMouse {
 
 		@CrossOrigin
 		@PostMapping
-		public String postScenario(@RequestBody ScenarioRequest request) {
-			return this.cmService.isCaught(request.getScenario(), request.getSpacesCanJump());
+		public ScenarioResponse postScenario(@RequestBody ScenarioRequest request) {
+			ScenarioResponse response = new ScenarioResponse();
+			response.setCaughtStatus(this.cmService.isCaught(request.getScenario(), request.getSpacesCanJump()));
+			return response;
 		}
 }
