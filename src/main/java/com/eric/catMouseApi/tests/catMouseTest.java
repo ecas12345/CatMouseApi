@@ -14,6 +14,7 @@ public class catMouseTest {
 	public void runEscapedCases() {
 		//Escaped Cases
 		String escapedText = "Escaped!";
+		System.out.println("Executing Escaped! cases");
 		//m > c
 		assertEquals(escapedText, catMouse.isCaught(".D..C.....m..", 1)); //Leading dog, j less than
 		assertEquals(escapedText, catMouse.isCaught(".C..m.....D..", 1)); //Trailing dog, j less than
@@ -36,6 +37,7 @@ public class catMouseTest {
 	public void runCaughtCases() {
 		//Caught Cases
 		String caughtText = "Caught!";
+		System.out.println("Executing Caught! cases");
 		//m > c
 		assertEquals(caughtText, catMouse.isCaught(".C...m.", 3)); //no dog, j exact distance  
 		assertEquals(caughtText, catMouse.isCaught(".C.....m.", 7)); //no dog, j greater than
@@ -80,33 +82,38 @@ public class catMouseTest {
 	public void runProtectedCases() {
 		//Protected Cases
 		String protectedText = "Protected!";
+		System.out.println("Executing Protected! cases");
 		//c < m
 		assertEquals(protectedText, catMouse.isCaught(".C.D.m.", 3)); //dog between, j exact distance
 		assertEquals(protectedText, catMouse.isCaught(".C..D..m.", 7)); //dog between, j greater than 	
 		assertEquals(protectedText, catMouse.isCaught("CDm", 4)); //dog between, j greater than distance, no dots
 		assertEquals(protectedText, catMouse.isCaught("CDm", 1)); //dog between, j exact distance to mouse, no dots
+		assertEquals(protectedText, catMouse.isCaught("CDm", 0)); //dog between, j exact distance to dog, no dots
 		assertEquals(protectedText, catMouse.isCaught("C.....................D............................................................m........", 1000)); //dog, j greater than distance, many dots
 		assertEquals(protectedText, catMouse.isCaught("C.....................D............................................................m........", 82)); //dog, j exact distance to mouse, many dots
 		assertEquals(protectedText, catMouse.isCaught("C.....................D............................................................m........", 21)); //dog, j exact distance to dog, many dots
-		assertEquals(protectedText, catMouse.isCaught("CDm", 0)); //dog between, j cannot jump, no dots
 		
 		//m < c
 		assertEquals(protectedText, catMouse.isCaught(".m.D...C.", 5)); //dog between, j exact distance
 		assertEquals(protectedText, catMouse.isCaught(".m..D..C.", 7)); //dog between, j greater than 	
 		assertEquals(protectedText, catMouse.isCaught("mDC", 4)); //dog between, j greater than distance, no dots
 		assertEquals(protectedText, catMouse.isCaught("mDC", 1)); //dog between, j exact distance to mouse, no dots
+		assertEquals(protectedText, catMouse.isCaught("mDC", 0)); //dog between, j exact distance to dog, no dots
 		assertEquals(protectedText, catMouse.isCaught("m.....................D............................................................C........", 1000)); //dog, j greater than distance, many dots
 		assertEquals(protectedText, catMouse.isCaught("m.....................D............................................................C........", 82)); //dog, j exact distance to mouse, many dots
 		assertEquals(protectedText, catMouse.isCaught("m.....................D............................................................C........", 60)); //dog, j exact distance to dog, many dots
-		assertEquals(protectedText, catMouse.isCaught("mDC", 0)); //dog between, j cannot jump, no dots
 	}
 	
 	@Test
 	public void runBoringCases() {
 		//Boring Cases
 		String boringText = "boring without all three";
-		assertEquals(boringText, catMouse.isCaught("......", 3)); //Test for no animals 
+		System.out.println("Executing boring cases");
+		assertEquals(boringText, catMouse.isCaught("......", 3)); //Test for no animals, more dots than j
+		assertEquals(boringText, catMouse.isCaught("...", 3)); //Test for no animals, j and dots are equal
+		assertEquals(boringText, catMouse.isCaught(".", 3)); //Test for no animals, j is greater than dots
 		assertEquals(boringText, catMouse.isCaught("............................................................", 10)); //Test for no animals, many dots
 		assertEquals(boringText, catMouse.isCaught("", 0)); //Test for no animals, no dots
+		assertEquals(boringText, catMouse.isCaught("", 10)); //Test for no animals, no dots, j greater than dots
 	}
 }
