@@ -9,5 +9,4 @@ public class CatMouseApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CatMouseApiApplication.class, args);
 	}
-
 }

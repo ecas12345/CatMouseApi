@@ -112,7 +112,7 @@ public class Animals {
 		 * check if spacesCatCanJump is greater than or equal to amount of spaces between the cat and mouse.
 		 * subtracting 1 to get the amount of spaces between the cat and mouse, otherwise we will get the distance between their respective positions.
 		 */
-		if(this.spacesCatCanJump >= (Math.abs(mouseLocation - catLocation)-1)) return true;
+		if(this.spacesCatCanJump >= (Math.abs(this.mouseLocation - this.catLocation)-1)) return true;
 		else return false;
 	}
 	
@@ -120,7 +120,15 @@ public class Animals {
 		/*
 		 * Check to see if the mouse is protected by the dog, by the dog being between the cat and mouse
 		 */
-		if((catLocation < dogLocation && dogLocation < mouseLocation) || (mouseLocation < dogLocation && dogLocation < catLocation )) return true;
+		if((this.catLocation < this.dogLocation && this.dogLocation < this.mouseLocation) || (this.mouseLocation < this.dogLocation && this.dogLocation < this.catLocation )) return true;
+		else return false;
+	}
+	public boolean collidesWithDog() {
+		/*
+		 * This is to check if the cat collides with the dog at all even if the cat can't jump all the way to the mouse.
+		 * Need to check if dogLocation is greater than -1 to make sure that a dog exists
+		 */
+		if((this.dogLocation > -1 ) && (this.spacesCatCanJump >= (Math.abs(this.dogLocation - this.catLocation)-1))) return true;
 		else return false;
 	}
 }
